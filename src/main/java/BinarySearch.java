@@ -3,16 +3,16 @@ https://leetcode.com/problems/binary-search/
  */
 
 public class BinarySearch {
-    public static int search(int[] nums, int target) {
-        int index = nums.length / 2;
 
-        return recSearch(nums, target, index);
+    public int search(int[] nums, int target) {
+        return recSearch(nums, 0, nums.length - 1, target);
     }
-    public static int recSearch(int[] nums, int target, int index) {
-        if (index < 0 || index > nums.length) return -1;
-        else if (nums[index] > target && nums[index - 1] < target) return -1;
-        else if (nums[index] == target) return index;
-        else if (nums[index] > target) return recSearch(nums, target, index - 1);
-        else return recSearch(nums, target, index + 1);
+    public static int recSearch(int[] nums, int start, int end, int target) {
+        if (start > end) return -1;
+        int middle = (start) + (end - start) / 2;
+
+        if (nums[middle] == target) return middle;
+        else if (nums[middle] > target) return recSearch(nums, start, middle - 1, target);
+        else return recSearch(nums, middle + 1, end, target);
     }
 }
