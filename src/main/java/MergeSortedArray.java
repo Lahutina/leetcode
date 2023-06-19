@@ -1,3 +1,7 @@
+/*
+https://leetcode.com/problems/merge-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150
+ */
+
 public class MergeSortedArray {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int i = n + m - 1, mi = m - 1, ni = n - 1;
